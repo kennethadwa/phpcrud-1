@@ -85,11 +85,11 @@ if ($password == $confirm) {
         <div class="form-row">
           <div class="form-group col-md-6 col-sm-12">
             <label for="firstName">First Name:</label>
-            <input type="text" class="form-control" id="firstName" name="firstname" value="<?php echo $row['firstname'];?>" placeholder="Enter first name" required>
+            <input type="text" class="form-control" id="firstName" name="firstname" value="<?php echo trim($row['firstname']);?>" placeholder="Enter first name" required>
           </div>
           <div class="form-group col-md-6 col-sm-12">
             <label for="lastName">Last Name:</label>
-            <input type="text" class="form-control" id="lastName" name="lastname" value="<?php echo $row['lastname'];?>" placeholder="Enter last name" required>
+            <input type="text" class="form-control" id="lastName" name="lastname" value="<?php echo trim($row['lastname']);?>" placeholder="Enter last name" required>
           </div>
         </div>
         <div class="form-row">
@@ -108,13 +108,11 @@ if ($password == $confirm) {
         </div>
         <div class="form-group">
           <label for="username">Username:</label>
-          <input type="text" class="form-control" id="username" name="user_name" value="
-            <?php echo $row['user_name'];?>" placeholder="Enter username" required>
+          <input type="text" class="form-control" id="username" name="user_name" value="<?php echo trim($row['user_name']);?>" placeholder="Enter username" required>
         </div>
         <div class="form-group">
           <label for="password">Password:</label>
-          <input type="password" class="form-control" id="password" name="user_pass" value="
-            <?php echo $row['user_pass'];?>" placeholder="Enter password" required>
+          <input type="password" class="form-control" id="password" name="user_pass" value="<?php echo trim($row['user_pass']);?>" placeholder="Enter password" required>
         </div>
         <div class="form-group">
       <label for="confirm">Confirm Password:</label>
@@ -129,25 +127,21 @@ if ($password == $confirm) {
       <div class="card-body">
         <div class="form-group">
           <label for="street">Street:</label>
-          <input type="text" class="form-control" id="street" name="user_street" value="
-            <?php echo $row['user_street'];?>" placeholder="Enter street" required>
+          <input type="text" class="form-control" id="street" name="user_street" value="<?php echo trim($row['user_street']);?>" placeholder="Enter street" required>
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="barangay">Barangay:</label>
-            <input type="text" class="form-control" id="barangay" name="user_barangay" value="
-            <?php echo $row['user_barangay'];?>" placeholder="Enter barangay" required>
+            <input type="text" class="form-control" id="barangay" name="user_barangay" value="<?php echo trim($row['user_barangay']);?>" placeholder="Enter barangay" required>
           </div>
           <div class="form-group col-md-6">
             <label for="city">City:</label>
-            <input type="text" class="form-control" id="city" name="user_city" value="
-            <?php echo $row['user_city'];?>" placeholder="Enter city" required>
+            <input type="text" class="form-control" id="city" name="user_city" value="<?php echo trim($row['user_city']);?>" placeholder="Enter city" required>
           </div>
         </div>
         <div class="form-group">
           <label for="province">Province:</label>
-          <input type="text" class="form-control" id="province" name="user_province" value="
-            <?php echo $row['address'];?>" placeholder="Enter province" required>
+          <input type="text" class="form-control" id="province" name="user_province" value="<?php echo trim($row['address']);?>" placeholder="Enter province" required>
         </div>
       </div>
     </div>
