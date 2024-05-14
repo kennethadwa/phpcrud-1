@@ -3,6 +3,11 @@
 require_once('classes/database.php'); 
 
 $con = new database();
+session_start	();
+
+if(empty($_SESSION['user_name'])){
+  header('location:Login.php');
+}
 
 
 if(isset($_POST['signup'])) {
