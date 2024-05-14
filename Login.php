@@ -5,7 +5,8 @@ require_once('classes/database.php');
 $con = new database();
 session_start();
 
-if($_SESSION['user_name']) {
+
+if(isset($_SESSION['user_name'])) {
   header('location:index2.php');
 }
 
