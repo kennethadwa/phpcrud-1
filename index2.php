@@ -97,13 +97,13 @@ if(isset($_POST['delete'])) {
     </table>
       <!-- Submit Button -->
    
-    <!-- <div class="container">
+    <div class="container">
     <div class="row justify-content-center gx-0">
         <div class="col-lg-3 col-md-4">
             <a class="btn btn-outline-danger btn-block mt-4" href="Login.php">Go Back</a>
         </div>
     </div>
-</div> -->
+</div>
 
   </div>
 </div>

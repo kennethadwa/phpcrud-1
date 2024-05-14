@@ -152,7 +152,7 @@ if (isset($_POST['multisave'])) {
             <input type="submit" name="multisave" class="btn btn-outline-primary btn-block mt-4" value="Sign Up">
         </div>
         <div class="col-lg-3 col-md-4">
-            <a class="btn btn-outline-danger btn-block mt-4" href="login.php">Go Back</a>
+            <a class="btn btn-outline-danger btn-block mt-4" href="Login.php">Go Back</a>
         </div>
     </div>
 </div>
