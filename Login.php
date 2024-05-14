@@ -3,7 +3,11 @@
 require_once('classes/database.php'); 
 
 $con = new database();
+session_start();
 
+if(empty($_SESSION['user_name'])) {
+  header('location:Login.php');
+}
 
 if(isset($_POST['login'])) {
   $username = $_POST['user_name'];
@@ -11,7 +15,7 @@ if(isset($_POST['login'])) {
   $result = $con->check($username,$password);
   if($result) {
     if($result['user_name']== $_POST['user_name'] && $result ['user_pass'] == $_POST['user_pass']) {
-    //$_SESSION['username'] = $result['username'];
+      $_SESSION['username'] = $result['user_name'];
     header('location:index2.php');
     } else {
       echo 'error';
