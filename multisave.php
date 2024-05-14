@@ -84,7 +84,7 @@ if (isset($_POST['multisave'])) {
         <a class="nav-link active" aria-current="page" href="#">Register<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="Login.php">Logout</a>
+        <a class="nav-link" href="Logout.php">Logout</a>
       </li>
     </ul>
     <!-- <form class="form-inline my-2 my-lg-0">
