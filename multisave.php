@@ -78,7 +78,13 @@ if (isset($_POST['multisave'])) {
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0 nav nav-pills">
       <li class="nav-item active">
+      <li class="nav-item">
+        <a class="nav-link" href="index2.php">List</a>
+      </li>
         <a class="nav-link active" aria-current="page" href="#">Register<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Login.php">Logout</a>
       </li>
     </ul>
     <!-- <form class="form-inline my-2 my-lg-0">
