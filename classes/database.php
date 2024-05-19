@@ -25,20 +25,13 @@
         return $con->prepare("INSERT INTO users(firstname,lastname,birthday,sex,user_name, user_pass) VALUES (?,?,?,?,?,?)")
         ->execute([$firstname,$lastname,$birthday,$sex,$username, $password]);
     }
-    function signupUser($firstname, $lastname, $birthday, $sex, $username, $password) {
+    function signupUser($firstname, $lastname, $birthday, $sex, $email, $username, $password, $profilePicture)
+    {
         $con = $this->opencon();
-       
-        $query = $con->prepare("SELECT user_name FROM users WHERE user_name = ?");
-        $query->execute([$username]);
-        $existingUser =  $query->fetch();
- 
-        if($existingUser){
-            return false;
-        }
-        $con->prepare("INSERT INTO users (firstname, lastname, birthday, sex, user_name, user_pass) VALUES (?,?,?,?,?,?)")
-                ->execute([$firstname, $lastname, $birthday, $sex, $username, $password]);
+        // Save user data along with profile picture path to the database
+        $con->prepare("INSERT INTO users (user_firstname, user_lastname, user_birthday, user_sex, user_email, user_name, user_pass, user_profile_picture) VALUES (?,?,?,?,?,?,?,?)")->execute([$firstname, $lastname, $birthday, $sex, $email, $username, $password, $profilePicture]);
         return $con->lastInsertId();
-    }
+        }
    
     function insertAddress($user_id, $street, $barangay, $city, $province) {
         $con = $this->opencon();
