@@ -3,10 +3,24 @@
         function opencon() {
             return new PDO('mysql:host=localhost;dbname=phpoop_221','root','');
         }
-        function check($username,$password) {
-            $con =$this->opencon();
-            $query = "Select * from users WHERE user_name='".$username."'&&user_pass='".$password."'";
-            return $con->query($query)->fetch();
+        function check($username, $password) {
+            // Open database connection
+            $con = $this->opencon();
+        
+            // Prepare the SQL query
+            $stmt = $con->prepare("SELECT * FROM users WHERE user_name = ?");
+            $stmt->execute([$username]);
+        
+            // Fetch the user data as an associative array
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+            // If a user is found, verify the password
+            if ($user && password_verify($password, $user['user_pass'])) {
+                return $user;
+            }
+        
+            // If no user is found or password is incorrect, return false
+            return false;
         }
 
         function signup($firstname,$lastname,$birthday,$sex,$username, $password){
@@ -85,7 +99,6 @@
         users.birthday,
         users.user_name,
         users.user_pass,
-        users.user_profile_picture,
         user_address.user_street,user_address.user_barangay,user_address.user_city,user_address.user_province AS address
     FROM
         users
