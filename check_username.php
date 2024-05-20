@@ -1,8 +1,8 @@
 <?php
 require_once('classes/database.php');
 
-if (isset($_POST['user_name'])) {
-    $username = $_POST['user_name'];
+if (isset($_POST['username'])) {
+    $username = $_POST['username'];
     $con = new database();
 
     $query = $con->opencon()->prepare("SELECT user_name FROM users WHERE user_name = ?");

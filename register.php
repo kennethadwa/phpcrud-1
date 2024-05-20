@@ -26,19 +26,28 @@ if (isset($_POST['multisave'])) {
     $province = $_POST['region_text'];
 
     // Handle file upload
-    $target_dir = "uploads/";
-    $original_file_name = basename($_FILES["user_profile_picture"]["name"]);
+   // Handle file upload
+   $target_dir = "uploads/";
+   $original_file_name = basename($_FILES["profile_picture"]["name"]);
+   
+   // NEW CODE: Initialize $new_file_name with $original_file_name
+    $new_file_name = $original_file_name; 
+   
+   
     $target_file = $target_dir . $original_file_name;
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
     $uploadOk = 1;
-    
-    // Check if file already exists and rename if necessary
-    if (file_exists($target_file)) {
-        // Generate a unique file name by appending a timestamp
-        $new_file_name = pathinfo($original_file_name, PATHINFO_FILENAME) . '_' . time() . '.' . $imageFileType;
-        $target_file = $target_dir . $new_file_name;
-    }
-
+   
+   // Check if file already exists and rename if necessary
+ // Check if file already exists and rename if necessary
+ if (file_exists($target_file)) {
+   // Generate a unique file name by appending a timestamp
+   $new_file_name = pathinfo($original_file_name, PATHINFO_FILENAME) . '_' . time() . '.' . $imageFileType;
+   $target_file = $target_dir . $new_file_name;
+ } else {
+   // Update $target_file with the original file name
+   $target_file = $target_dir . $original_file_name;
+}
     // Check if file is an actual image or fake image
     $check = getimagesize($_FILES["profile_picture"]["tmp_name"]);
     if ($check === false) {
@@ -107,6 +116,10 @@ if (isset($_POST['multisave'])) {
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <title>Form with MultiStep and Address Selector</title>
   <style>
+
+    body{
+      background-image: url('light-sea-dawn-1308004.jpg');
+    }
     .form-step {
       display: none;
     }
@@ -116,8 +129,35 @@ if (isset($_POST['multisave'])) {
   </style>
 </head>
 <body>
+
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Welcome!</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0 nav nav-pills">
+      <li class="nav-item active">
+      <li class="nav-item">
+        <a class="nav-link" href="index2.php">List</a>
+      </li>
+        <a class="nav-link active" aria-current="page" href="#">Register<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Logout.php">Logout</a>
+      </li>
+    </ul>
+    <!-- <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form> -->
+  </div>
+</nav>
+
+
 <div class="container custom-container rounded-3 shadow my-5 p-3 px-5">
-  <h3 class="text-center mt-4">Registration Form</h3>
+  <h3 class="text-center mt-4 text-white">Registration Form</h3>
   <form id="registration-form" method="post" action="" enctype="multipart/form-data" novalidate>
     <!-- Step 1 -->
     <div class="form-step form-step-active" id="step-1">
