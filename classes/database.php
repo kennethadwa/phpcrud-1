@@ -29,7 +29,7 @@
     {
         $con = $this->opencon();
         // Save user data along with profile picture path to the database
-        $con->prepare("INSERT INTO users (user_firstname, user_lastname, user_birthday, user_sex, user_email, user_name, user_pass, user_profile_picture) VALUES (?,?,?,?,?,?,?,?)")->execute([$firstname, $lastname, $birthday, $sex, $email, $username, $password, $profilePicture]);
+        $con->prepare("INSERT INTO users (firstname,lastname, birthday, sex, email, user_name, user_pass, user_profile_picture) VALUES (?,?,?,?,?,?,?,?)")->execute([$firstname, $lastname, $birthday, $sex, $email, $username, $password, $profilePicture]);
         return $con->lastInsertId();
         }
    
@@ -48,6 +48,7 @@
         users.lastname,
         users.sex,
         users.birthday,
+        users.user_profile_picture,
         users.user_name, CONCAT(
         user_address.user_street,' ',user_address.user_barangay,' ',user_address.user_city,' ',user_address.user_province) AS address
     FROM
@@ -84,6 +85,7 @@
         users.birthday,
         users.user_name,
         users.user_pass,
+        users.user_profile_picture,
         user_address.user_street,user_address.user_barangay,user_address.user_city,user_address.user_province AS address
     FROM
         users

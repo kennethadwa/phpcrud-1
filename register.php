@@ -9,7 +9,7 @@ $error = "";
 if (isset($_POST['multisave'])) {
     
     // Getting the account information
-    $username = $_POST['user_name'];
+    $username = $_POST['username'];
     $email = $_POST['email'];
     $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
     
@@ -27,7 +27,7 @@ if (isset($_POST['multisave'])) {
 
     // Handle file upload
     $target_dir = "uploads/";
-    $original_file_name = basename($_FILES["profile_picture"]["name"]);
+    $original_file_name = basename($_FILES["user_profile_picture"]["name"]);
     $target_file = $target_dir . $original_file_name;
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
     $uploadOk = 1;
